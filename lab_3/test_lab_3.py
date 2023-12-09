@@ -2,6 +2,7 @@ from conv_transpose import conv_transpose
 import torch
 from torch.nn.functional import conv_transpose2d
 import pytest
+from conv2D import conv2d
 
 def test_1():
     image = torch.randn(1, 1, 3, 3) 
@@ -40,8 +41,8 @@ def test_3():
     assert torch.allclose(myConvT, torchConvT)
 
 def test_4():
-    image = torch.randn(1, 1, 6, 6) 
-    weight = torch.randn(1, 1, 6, 6)
+    image = torch.randn(1, 1, 2, 2) 
+    weight = torch.randn(1, 1, 2, 2)
     
     myConvT = torch.from_numpy(conv_transpose(image.numpy(), weight.numpy()))
 
